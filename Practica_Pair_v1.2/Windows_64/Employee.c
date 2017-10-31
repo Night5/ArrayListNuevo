@@ -1,13 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "ArrayList.h"
 #include "Employee.h"
 
 
 int employee_compare(void* pEmployeeA,void* pEmployeeB)
 {
+    int returnAux;
+    Employee* aux1;
+    Employee* aux2;
 
-    return 0;
+    if(pEmployeeA !=NULL && pEmployeeB != NULL)
+    {
+        aux1=(Employee*) pEmployeeA;
+        aux2=(Employee*) pEmployeeB;
+
+        if(strcmp(aux1->name,aux2->name)>0)
+        {
+            returnAux=1;
+        }
+    }
+    return returnAux;
 }
 
 
@@ -32,13 +46,8 @@ Employee* employee_new(void)
 
 void employee_delete(Employee* this)
 {
-    int returnAux = -1;
-    if(this!=NULL)
-    {
-        free(this);
-        returnAux=0;
-    }
-    return returnAux;
+    //lista->remove(lista,index);
+    //free(this);
 }
 
 int employee_setId(Employee* this, int id)
@@ -46,7 +55,7 @@ int employee_setId(Employee* this, int id)
 
    if(this != NULL)
    {
-    this->id = id; //toma el id con el que va a trabajar la funcion
+      this->id = id; //toma el id con el que va a trabajar la funcion
    }
     return 0;
 
@@ -55,11 +64,11 @@ int employee_setId(Employee* this, int id)
 int employee_getId(Employee* this)
 {
     int returnAux;
-    if(returnAux!=NULL)
+    if(this!=NULL)
     {
-        returnAux = employee_getId(Employee->id);
+        returnAux = this->id;
     }
-    return Employee*;
+    return returnAux;
 
 }
 
